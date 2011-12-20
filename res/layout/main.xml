@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="25dp" >
+
+    <TextView
+        android:id="@+id/tvProfileCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Profile"
+        android:textSize="40dp"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="left" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insert your name" />
+
+    <TextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+<RadioGroup 
+   		 android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/rbMale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:checked="true"
+         />
+
+    <RadioButton
+        android:id="@+id/rbFemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"  		/>
+</RadioGroup>
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:hint="Insert your weight">
+
+        <requestFocus />
+    </EditText>
+   
+	<Button 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Create"
+	    android:textSize="25dp"
+	    android:layout_gravity="center"
+	   	android:layout_marginTop="20dp"
+	   	android:id ="@+id/bCreate"
+	    />
+    
+    
+</LinearLayout>
