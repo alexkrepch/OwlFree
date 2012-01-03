@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/tvDrinkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drink name:"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/etDrinkName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow >
+
+            <TextView
+                android:id="@+id/tvAlc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="alc %:"
+                android:textSize="15dp" 
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvMl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ml:"
+                android:textSize="15dp" 
+                android:layout_weight="1"/>
+        </TableRow>
+ <TableRow >
+        <EditText
+            android:id="@+id/etAlc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" 
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etMl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_weight="1" />
+ </TableRow>
+        <Button
+            android:id="@+id/bUpdate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <Button
+            android:id="@+id/bView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="view" />
+
+        <EditText
+            android:id="@+id/etSqlRowInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/bGetInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
+    <Button
+        android:id="@+id/bSQLmodify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Entry" />
+
+    <Button
+        android:id="@+id/bDeleteEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete entry" />
+
+</LinearLayout>

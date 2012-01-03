@@ -9,19 +9,19 @@
         android:id="@+id/tvProfileCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Profile"
-        android:textSize="40dp"
         android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="New Profile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="left"
         android:layout_marginTop="30dp"
-        android:layout_gravity="left" />
+        android:text="Name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/etName"
@@ -36,23 +36,23 @@
         android:text="Gender:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-<RadioGroup 
-   		 android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <RadioButton
-        android:id="@+id/rbMale"
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Male"
-        android:checked="true"
-         />
+        android:layout_height="wrap_content" >
 
-    <RadioButton
-        android:id="@+id/rbFemale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Female"  		/>
-</RadioGroup>
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/tvWeight"
@@ -61,24 +61,22 @@
         android:text="Weight:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+
+
     <EditText
         android:id="@+id/etWeight"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:hint="Insert your weight">
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Insert your weight" />
+        
+    <Button
+        android:id="@+id/bCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Create"
+        android:textSize="20dp" />
 
-        <requestFocus />
-    </EditText>
-   
-	<Button 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="Create"
-	    android:textSize="25dp"
-	    android:layout_gravity="center"
-	   	android:layout_marginTop="20dp"
-	   	android:id ="@+id/bCreate"
-	    />
-    
-    
 </LinearLayout>

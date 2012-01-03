@@ -14,7 +14,7 @@ public class OpenScreen extends Activity{
 		Thread timer = new Thread(){
 			public void run(){
 				try {
-					sleep(3000);
+					sleep(1500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					
@@ -23,8 +23,8 @@ public class OpenScreen extends Activity{
 					
 				}
 				finally{
-					Intent openProfileScreen = new Intent("iAndroid.owlFree.OWLFREE");  
-					startActivity(openProfileScreen);
+					Intent i = new Intent("iAndroid.owlFree.NEWOREXISTPROFILE");  
+					startActivity(i);
 				}
 			}
 		};

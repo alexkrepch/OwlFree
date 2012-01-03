@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User name:"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/etUserName1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow >
+
+            <TextView
+                android:id="@+id/tvWight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wight::"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="gender:"
+                android:textSize="15dp" />
+        </TableRow>
+
+        <TableRow >
+
+            <EditText
+                android:id="@+id/etWight"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/etGender"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/bUpdate1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add" />
+
+            <Button
+                android:id="@+id/bView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="view" />
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Row:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_weight="0.5" />
+
+            <EditText
+                android:id="@+id/etSqlRowInfo1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_weight="8" >
+
+                <requestFocus />
+            </EditText>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/bGetInfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
+    <Button
+        android:id="@+id/bSQLmodify1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Entry" />
+
+    <Button
+        android:id="@+id/bDeleteEntry1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete entry" />
+
+</LinearLayout>
