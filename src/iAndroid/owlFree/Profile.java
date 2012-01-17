@@ -18,7 +18,7 @@ public class Profile
 	public static final String KEY_REF = "profileRef";
 	private static final String DATABASE_NAME = "profileDb";
 	private static final String DATABASE_TABLE = "profileTable";
-	private static final int DATABASE_VERSION = 3;
+	private static final int DATABASE_VERSION = 7;
 	private DbHelper ourHelper;
 	private final Context ourContext;
 	private SQLiteDatabase ourDatabase;
@@ -140,6 +140,28 @@ public class Profile
 		}
 		return null;
 	}
+	public String getAlc(long l) {
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER, KEY_ALC, KEY_REF };
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "="
+				+ l, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+			String alc = c.getString(4);
+			return alc;
+		}
+		return null;
+	}
+	public String getRef(long l) {
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER, KEY_ALC, KEY_REF };
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "="
+				+ l, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+			String ref = c.getString(5);
+			return ref;
+		}
+		return null;
+	}
 	
 	public void updateEntry(long lRow, String mName, String mWight, String mGender) {
 		ContentValues cvUpdate = new ContentValues();
@@ -150,6 +172,24 @@ public class Profile
 				null);
 	}
 	
+	public void setAlc(long l, double alc)
+	{
+		String s = ""+alc;
+		ContentValues cvUpdate = new ContentValues();
+		cvUpdate.put(KEY_ALC, alc);
+		ourDatabase.update(DATABASE_TABLE, cvUpdate, KEY_ROWID + "=" + l,
+				null);
+		
+	}
+	public void setTime(long l, double time)
+	{
+		String s = ""+time;
+		ContentValues cvUpdate = new ContentValues();
+		cvUpdate.put(KEY_REF, time);
+		ourDatabase.update(DATABASE_TABLE, cvUpdate, KEY_ROWID + "=" + l,
+				null);
+		
+	}
 	public void deleteEntry(long lDel) {
 		ourDatabase.delete(DATABASE_TABLE, KEY_ROWID + "=" + lDel, null);
 
@@ -229,7 +269,30 @@ public class Profile
 		
 		return null;
 	}
+	public int getRowByName(String selected) {
 
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER };
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null,
+				null, null);
+		String s;
+		int iRow = c.getColumnIndex(KEY_ROWID);
+		int iName = c.getColumnIndex(KEY_NAME);
+
+		if (c != null) {
+
+			for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+
+				if (c.getString(iName).compareTo(selected) == 0) {
+					
+					int r = c.getInt(iRow);
+					return r;
+				}
+			}
+		}
+		
+		
+		return 0;
+	}
 	public void updateAlc(String userName,double a) {
 		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER, KEY_ALC, KEY_REF };
 		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null,
@@ -259,34 +322,57 @@ public class Profile
 		}
 		
 	}
-	public void refreshAlc(String selected)
-	{
-		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER,KEY_ALC,KEY_REF };
+	
+	public double getBac(String selected) {
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER };
 		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null,
 				null, null);
 		String s;
-		int iGender = c.getColumnIndex(KEY_GENDER);
+		int ialc = c.getColumnIndex(KEY_ALC);
 		int iName = c.getColumnIndex(KEY_NAME);
-		int iWight = c.getColumnIndex(KEY_WIGHT);
-		int iTime = c.getColumnIndex(KEY_REF);
-		int iAlc = c.getColumnIndex(KEY_ALC);
-		
+
 		if (c != null) {
 
 			for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 
 				if (c.getString(iName).compareTo(selected) == 0) {
-					long oldTime = Long.parseLong(c.getString(iTime));
-					long curentTime = System.currentTimeMillis();
-					long changeTime = (curentTime-oldTime)/(1000*3600);
+					s = c.getString(ialc);
+					double a = Double.parseDouble(s);
+					return a;
+				}
+			}
+		}
+		
+		return 0;
+	}
+
+	public void setAlcByName(String selected,double alc) {
+		String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_WIGHT, KEY_GENDER };
+		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null,
+				null, null);
+		String s;
+		int ialc = c.getColumnIndex(KEY_ALC);
+		int iName = c.getColumnIndex(KEY_NAME);
+
+		if (c != null) {
+
+			for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+
+				if (c.getString(iName).compareTo(selected) == 0) {
+					ContentValues cvUpdate = new ContentValues();
+					cvUpdate.put(KEY_ALC, alc);
 					
-							
-				
+					
+					ourDatabase.update(DATABASE_TABLE, cvUpdate, KEY_ROWID + "=" + "1",
+							null);
+					
 					
 				}
 			}
 		}
-
+		
+		
+		
 	}
 	
 }

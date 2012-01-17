@@ -70,7 +70,7 @@ public class ExsitProfileChoose extends Activity implements OnItemSelectedListen
 		
 		p.close();
 		
-		 wight = Integer.parseInt(userWightTxt);
+		wight = Integer.parseInt(userWightTxt);
 		userGender=true;
 		if (userGenderTxt.compareTo("male")!=0)
 			userGender=false;

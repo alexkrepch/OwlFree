@@ -24,20 +24,36 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Drink it" />
-
-    <EditText
-        android:id="@+id/etNumOfDrinks"
+  <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <requestFocus />
-    </EditText>
+        <TableRow >
+    <TextView
+        android:id="@+id/tvBAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BAC: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="1" />
+            
+       <TextView
+        android:id="@+id/showAlc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="1" />
+
+      </TableRow>
+    </TableLayout>
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" 
-        android:layout_marginTop="190dp">
+        android:layout_marginTop="200dp">
 		
         <TableRow >
 
@@ -45,7 +61,7 @@
                 android:id="@+id/bDbMenu"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Database Menu"
+                android:text="Alcohol Menu"
                 android:layout_weight="1" />
 
             <Button

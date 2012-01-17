@@ -18,18 +18,18 @@ public final class R {
     }
     public static final class id {
         public static final int bAddDrink=0x7f05001c;
-        public static final int bCreate=0x7f05002a;
-        public static final int bDbMenu=0x7f05001e;
-        public static final int bDbProfile=0x7f05001f;
+        public static final int bCreate=0x7f05002b;
+        public static final int bDbMenu=0x7f05001f;
+        public static final int bDbProfile=0x7f050020;
         public static final int bDeleteEntry=0x7f05000c;
         public static final int bDeleteEntry1=0x7f050019;
-        public static final int bExist=0x7f05002c;
+        public static final int bExist=0x7f05002d;
         public static final int bGetInfo=0x7f05000a;
         public static final int bGetInfo1=0x7f050017;
-        public static final int bNew=0x7f05002b;
+        public static final int bNew=0x7f05002c;
         public static final int bSQLmodify=0x7f05000b;
         public static final int bSQLmodify1=0x7f050018;
-        public static final int bSelectProfile=0x7f050022;
+        public static final int bSelectProfile=0x7f050023;
         public static final int bUpdate=0x7f050007;
         public static final int bUpdate1=0x7f050013;
         public static final int bView=0x7f050008;
@@ -38,30 +38,31 @@ public final class R {
         public static final int etDrinkName=0x7f050001;
         public static final int etGender=0x7f050012;
         public static final int etMl=0x7f050006;
-        public static final int etName=0x7f050025;
-        public static final int etNumOfDrinks=0x7f05001d;
+        public static final int etName=0x7f050026;
         public static final int etSqlRowInfo=0x7f050009;
         public static final int etSqlRowInfo1=0x7f050016;
         public static final int etUserName1=0x7f05000e;
-        public static final int etWeight=0x7f050029;
+        public static final int etWeight=0x7f05002a;
         public static final int etWight=0x7f050011;
-        public static final int rbFemale=0x7f050027;
-        public static final int rbMale=0x7f050026;
+        public static final int rbFemale=0x7f050028;
+        public static final int rbMale=0x7f050027;
+        public static final int showAlc=0x7f05001e;
         public static final int spDrinks=0x7f05001b;
-        public static final int spPRofile=0x7f050021;
+        public static final int spPRofile=0x7f050022;
         public static final int tableLayout=0x7f050002;
         public static final int textView1=0x7f050015;
         public static final int tvAlc=0x7f050003;
+        public static final int tvBAC=0x7f05001d;
         public static final int tvDrinkName=0x7f050000;
-        public static final int tvDrinksInfo=0x7f050020;
+        public static final int tvDrinksInfo=0x7f050021;
         public static final int tvGender=0x7f050010;
         public static final int tvMl=0x7f050004;
-        public static final int tvName=0x7f050024;
-        public static final int tvProfileCreate=0x7f050023;
-        public static final int tvProfileInfo=0x7f05002d;
+        public static final int tvName=0x7f050025;
+        public static final int tvProfileCreate=0x7f050024;
+        public static final int tvProfileInfo=0x7f05002e;
         public static final int tvTitle=0x7f05001a;
         public static final int tvUserName=0x7f05000d;
-        public static final int tvWeight=0x7f050028;
+        public static final int tvWeight=0x7f050029;
         public static final int tvWight=0x7f05000f;
     }
     public static final class layout {

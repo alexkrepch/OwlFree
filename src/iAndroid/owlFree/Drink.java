@@ -16,7 +16,7 @@ public class Drink {
 	public static final String KEY_ML = "drinkMl";
 	private static final String DATABASE_NAME = "drinkDb";
 	private static final String DATABASE_TABLE = "drinkTable";
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 7;
 	private DbHelper ourHelper;
 	private final Context ourContext;
 	private SQLiteDatabase ourDatabase;
@@ -40,6 +40,7 @@ public class Drink {
 			// TODO Auto-generated method stub
 			db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 			onCreate(db);
+
 		}
 	}
 
@@ -218,10 +219,36 @@ public class Drink {
 
 	public void init() {
 		ContentValues cv = new ContentValues();
+		
+		cv.put(KEY_NAME, "water");
+		cv.put(KEY_ALC, "0");
+		cv.put(KEY_ML, "100");
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		cv.clear();
+		
 		cv.put(KEY_NAME, "arak");
 		cv.put(KEY_ALC, "40");
 		cv.put(KEY_ML, "50");
 		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		cv.clear();
+		
+		cv.put(KEY_NAME, "wine");
+		cv.put(KEY_ALC, "11");
+		cv.put(KEY_ML, "120");
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		cv.clear();
+		cv.put(KEY_NAME, "beer");
+		cv.put(KEY_ALC, "4");
+		cv.put(KEY_ML, "500");
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		cv.clear();
+		cv.put(KEY_NAME, "cocktail");
+		cv.put(KEY_ALC, "13");
+		cv.put(KEY_ML, "150");
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
+		cv.clear();
+		
+		
 	}
 
 	
