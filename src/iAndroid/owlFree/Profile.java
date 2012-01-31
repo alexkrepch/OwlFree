@@ -18,7 +18,7 @@ public class Profile
 	public static final String KEY_REF = "profileRef";
 	private static final String DATABASE_NAME = "profileDb";
 	private static final String DATABASE_TABLE = "profileTable";
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 8;
 	private DbHelper ourHelper;
 	private final Context ourContext;
 	private SQLiteDatabase ourDatabase;

@@ -77,7 +77,7 @@ public class Drink {
 		int iMl = c.getColumnIndex(KEY_ML);
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 			result = result + c.getString(iRow) + " " + c.getString(iName)
-					+ " " + c.getString(iAlc) + " " + c.getString(iMl) + "\n";
+					+ " " + c.getString(iAlc) + "0 " + c.getString(iMl) + "\n";
 		}
 		return result;
 	}

@@ -11,6 +11,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,9 +22,9 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 	DrowGraph ourView;
 	TextView title;
 	Spinner drinkList;
-	//EditText ttt;
-	TextView ttt;
-	Button dbMenu,dbProfile,addDrink;
+	ImageView pic;
+	TextView showAlc,showSober;
+	Button dbMenu,dbProfile,addDrink,clr,refresh;
 	String[] drinksNames;
 	String userName;
 	double itemAlc,itemMl;
@@ -37,11 +38,13 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 		setContentView(R.layout.drink);
 		title = (TextView)findViewById(R.id.tvTitle);
 		dbMenu = (Button)findViewById(R.id.bDbMenu);
-		
-		ttt = (TextView)findViewById(R.id.showAlc);
+		pic = (ImageView)findViewById(R.id.imageView1);
+		showAlc = (TextView)findViewById(R.id.showAlc);
+		showSober = (TextView)findViewById(R.id.showSober);
 		dbProfile=(Button)findViewById(R.id.bDbProfile);
 		addDrink =(Button)findViewById(R.id.bAddDrink);
-		
+		clr = (Button)findViewById(R.id.bClr);
+		refresh = (Button)findViewById(R.id.bRef);
 		Drink d = new Drink(this);
 		d.open();
 			int numOfRows = d.getNumofRows();
@@ -75,17 +78,36 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 				
 			}
 		});
-		
+		clr.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+			p.open();
+			int l = p.getRowByName(userName);
+			p.setAlc(l, 0);
+			double curentTime = System.currentTimeMillis();
+
+			p.setTime(l, curentTime);
+			refreshAlc(l);
+			p.close();
+			
+				
+			}
+		});
+		refresh.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+			p.open();
+			int l = p.getRowByName(userName);
+			refreshAlc(l);
+			p.close();
+			
+				
+			}
+		});
 		addDrink.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				p.open();
 				int r = p.getRowByName(userName);
-			/*	double oldAlc = Double.parseDouble( p.getAlc(r));
-				double oldTime = Double.parseDouble( p.getRef(r));
-				double curentTime = System.currentTimeMillis();
-				double timeDef =(curentTime-oldTime)/3600000;
-				double curentAlc = Double.parseDouble(p.getAlc(r))-0.15*timeDef;
-				double curentA = calcA(curentAlc, 0);*/
 				p.close();
 				
 				
@@ -104,21 +126,21 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 				double a = ml*alc;
 				////*****************
 				curentA = curentA+ a;
-				 curentAlc=calcBAC(curentA, 0);
+				curentAlc=calcBAC(curentA, 0);
 				p.setAlc(r, curentAlc);
 				double curentTime = System.currentTimeMillis();
-
 				p.setTime(r, curentTime);
 				
-			//	refreshAlc(r);
-				String s = p.getRef(r);
+
+	
 				double tmp = curentAlc/100;
 						
-				String alcToView = (""+tmp);
-				alcToView = alcToView.substring(0, 6);
-				ttt.setText(alcToView);
+	//			String alcToView = (""+tmp);
+	//			alcToView = alcToView.substring(0, 6);
+		//		showAlc.setText(alcToView);
 				p.close();
 				refreshAlc(r);
+			//	refSober(tmp);
 				
 			}
 		});
@@ -133,26 +155,7 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 		p.close();
 		
 		refreshAlc(r);
-	/*	double oldAlc = Double.parseDouble( p.getAlc(r));
-		double oldTime = Double.parseDouble( p.getRef(r));
-		double curentTime = System.currentTimeMillis();
-		double timeDef =(curentTime-oldTime)/3600000;
-		double curentAlc = Double.parseDouble(p.getAlc(r))-0.15*timeDef;
-		if (curentAlc<0)
-			curentAlc=0;
-		p.setAlc(r, curentAlc);
-		p.setTime(r, curentTime);
-		String s = p.getRef(r);
 	
-		
-		
-		double tmp = curentAlc/100;
-		
-		String alcToView = (""+tmp);
-
-		ttt.setText(alcToView);
-		
-		p.close();*/
 	}
 	
 	  public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -182,7 +185,7 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 		if (gString.compareTo("male")==0)
 			r=0.73;
 		
-		double bac =(a*5.14)/(w*r)-0.15*h;
+		double bac =(a*5.14)/(w*r)-0.015*h;
 		if (bac < 0 )
 			return 0;
 		return bac;
@@ -210,33 +213,97 @@ public class AddDrinkScreen extends Activity implements OnItemSelectedListener{
 			double oldTime = Double.parseDouble( p.getRef(r));
 			double curentTime = System.currentTimeMillis();
 			double timeDef =(curentTime-oldTime)/3600000;
-			double curentAlc = Double.parseDouble(p.getAlc(r))-0.15*timeDef;
+			double curentAlc = Double.parseDouble(p.getAlc(r))-(0.015*timeDef*100);
 			if (curentAlc<0)
 				curentAlc=0;
 			p.setAlc(r, curentAlc);
 			p.setTime(r, curentTime);
 			String s = p.getRef(r);
 			double tmp = curentAlc/100;
+			int id;
 			
 			if (tmp<0.025)
-				ttt.setTextColor(Color.WHITE);
+			{	
+				showAlc.setTextColor(Color.WHITE);
+				
+				if (p.getGenderByName(userName).compareTo("male")==0)
+					 id = R.drawable.a2;
+				else
+					 id = R.drawable.g1;
+				pic.setImageResource(id);
+				
+			}
 			if (tmp<0.05 && tmp >= 0.025)
-				ttt.setTextColor(Color.YELLOW);
+			{
+				showAlc.setTextColor(Color.YELLOW);
+				if (p.getGenderByName(userName).compareTo("male")==0)
+					 id = R.drawable.a4;
+				else
+					 id = R.drawable.g2;
+				pic.setImageResource(id);
+			}
 			if (tmp > 0.05)
-				ttt.setTextColor(Color.RED);
+			{
+				showAlc.setTextColor(Color.RED);
+			 	if (p.getGenderByName(userName).compareTo("male")==0)
+					 id = R.drawable.a5;
+				else
+					 id = R.drawable.g3;
+				pic.setImageResource(id);
+			
+			}
 			String alcToView = (tmp+"");
 			
-			if (alcToView.length()>6)
-				alcToView = alcToView.substring(0, 6);
+			if (alcToView.length()>10)
+				alcToView = alcToView.substring(0, 10);
 			alcToView= alcToView+ "%";
-			ttt.setText(alcToView);
-		/*	double h;
-			if (tmp > 0.05)
-				 h = (0.05- tmp)/(-0.15);
-			else
-				h=0;
-			ttt.setText(alcToView+"   "+h);*/
+			showAlc.setText(alcToView);
+		
+			refSober(r);
+
 		p.close();
+	}
+	
+	void refSober(int l)
+	{
+		p.open();
+		String wStr = p.getWight(l);
+		String gStr = p.getGender(l);
+		String bacStr = p.getAlc(l);
+		double bac= Double.parseDouble(bacStr)/100;
+		double w = Double.parseDouble(wStr);
+		double r = 0.69;
+		if (gStr.compareTo("male")==0)
+			r=0.73;
+		double a = calcA(bac, 0);
+		p.close();
+		double h,m;
+		
+		
+		h = (0.05 -bac)/(-0.015);
+		
+
+		int hInt;
+		int mInt;
+		if (bac > 0.05)
+		{
+		//	h = (0.05- bac)/(-0.015);
+			hInt =(int)h;
+			m = (h - hInt)*60;
+			mInt =(int)m;
+			
+		}		
+		else
+			{	
+				m=0;
+				hInt=0;
+				mInt=0;
+			}
+		
+		showSober.setText(hInt+"h:" + mInt + "m" );
+	//	int id = R.drawable.icon2;
+	//	pic.setImageResource(id);
+	
 	}
 }
 

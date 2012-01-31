@@ -18,7 +18,7 @@ public class owlFree extends Activity  {
 	Button create;
 	EditText name,weight; 
 	TextView nameLabel;
-//CheckBox gender;
+
 	int userWeight;
 	RadioButton male,female;
 	
@@ -35,7 +35,7 @@ public class owlFree extends Activity  {
         nameLabel = (TextView)findViewById(R.id.tvName);
         male = (RadioButton)findViewById(R.id.rbMale);
         female = (RadioButton)findViewById(R.id.rbFemale);
-    //    gender = (CheckBox)findViewById(R.id.cbMale);     
+   
         create.setOnClickListener(new View.OnClickListener() {	
 			public void onClick(View v) {
 				String userName = name.getText().toString();
@@ -47,7 +47,7 @@ public class owlFree extends Activity  {
 					userGender=false;
 				try	{
 					userWeight= Integer.parseInt(userWeightText);//atoi
-			//		Profile userPro = new Profile(userGender,userWeight, userName);
+			
 					Intent openDrinkScreen = new Intent("iAndroid.owlFree.ADDDRINKSCREEN");  
 					
 					openDrinkScreen.putExtra("name",userName);
@@ -69,10 +69,7 @@ public class owlFree extends Activity  {
 				}catch (Exception e) {
 					weight.setTextColor(Color.RED);	
 				}
-				/*
-				Intent openD =new  Intent("iAndroid.owlFree.ADDDRINKSTODBASE");
-				startActivity(openD);
-				*/
+				
 				
 			}
 		}); 

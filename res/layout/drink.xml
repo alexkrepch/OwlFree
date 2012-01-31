@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="25dp" >
+    android:padding="25dp" 
+     android:background="@drawable/b1">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -18,12 +19,33 @@
         android:id="@+id/spDrinks"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
+<TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-    <Button
+        <TableRow >
+   	 <Button
+        android:id="@+id/bClr"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:layout_weight="1" />
+     <Button
         android:id="@+id/bAddDrink"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Drink it" />
+        android:text="Drink it" 
+        android:layout_weight="1"/> 
+        
+        <Button
+        android:id="@+id/bRef"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh" 
+        android:layout_weight="1"/>
+      </TableRow>
+    </TableLayout>
   <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="fill_parent"
@@ -48,12 +70,43 @@
 
       </TableRow>
     </TableLayout>
+	
+	
+	<TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow >
+    <TextView
+        android:id="@+id/tvSober"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SOBER AT: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="1" />
+            
+       <TextView
+        android:id="@+id/showSober"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="1" />
+
+      </TableRow>
+    </TableLayout>
+		<ImageView
+	    android:id="@+id/imageView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/a4" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" 
-        android:layout_marginTop="200dp">
+        >
 		
         <TableRow >
 

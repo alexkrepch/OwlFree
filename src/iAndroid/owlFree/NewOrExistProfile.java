@@ -36,15 +36,7 @@ public class NewOrExistProfile extends Activity implements OnClickListener {
 			
 			Intent selectProfileScreen = new Intent("iAndroid.owlFree.EXSITPROFILECHOOSE");
 			startActivity(selectProfileScreen);
-			/*Intent openDrinkScreen = new Intent("iAndroid.owlFree.ADDDRINKSCREEN");  
 			
-			openDrinkScreen.putExtra("name","elad");
-			openDrinkScreen.putExtra("gender", true);
-			openDrinkScreen.putExtra("weight",70);
-			
-			startActivity(openDrinkScreen);
-			
-			*/
 			break;
 		}
 		

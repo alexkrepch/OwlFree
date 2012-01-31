@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" 
-     android:padding="25dp">
+     android:padding="25dp"
+      android:background="@drawable/b1">
 
     <Button
         android:id="@+id/bNew"
@@ -15,6 +16,6 @@
         android:id="@+id/bExist"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Exist" />
+        android:text="Log in" />
 
 </LinearLayout>
